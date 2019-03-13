@@ -36,6 +36,8 @@ UNION 内部的 SELECT 语句必须拥有相同数量的列。如果允许重复
  - RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行
  - FULL JOIN: 只要其中一个表中存在匹配，就返回行
 
+![20180510160641974](/assets/20180510160641974.png)
+
 **错误：MYSQL不支持FULL JOIN，报错**
 `SELECT * FROM sys_user U FULL JOIN sys_user_info I ON U.SEQ_ID = I.SEQ_ID ORDER BY USER_CD`
 **正确**
@@ -83,6 +85,16 @@ SELECT IFNULL(UPDATE_USER, 0) FROM SYS_USER;
 SELECT COALESCE(UPDATE_USER, 0) FROM SYS_USER;
 ```
 ## 7 索引
+
+ - MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。
+   
+ - 索引分单列索引和组合索引。单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。组合索引，即一个索包含多个列。 
+ - 创建索引时，你需要确保该索引是应用在 SQL 查询语句的条件(一般作为 WHERE 子句的条件)。
+   
+ - 实际上，索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录。
+   
+ - 使用索引有很多好处，但过多的使用索引将会造成滥用。因此索引也会有它的缺点：虽然索引大大提高了查询速度，同时却会降低更新表的速度，如对表进行INSERT、UPDATE和DELETE。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件。建立索引会占用磁盘空间的索引文件。
+---------------------
 |索引语法|说明|
 |-----|-----|
 |CREATE INDEX indexName ON tableName(columnName(length)); |在表上创建一个简单的索引。允许使用重复的值，BLOB和TEXT类型，必须指定 length|
@@ -140,3 +152,16 @@ DROP VIEW USER_ADMIN_CD
 |REFERENCES| Persons(Id_P)|
 |CHECK|用于限制列中的值的范围。CHECK (Id_P>0)|
 |DEFAULT|用于向列中插入默认值。City varchar(255) DEFAULT 'Sandnes'|
+
+## 10 事务
+一般来说，事务是必须满足4个条件（ACID）：` Atomicity（原子性）`、`Consistency（稳定性）`、`Isolation（隔离性）`、`Durability（可靠性）`
+1）事务的原子性：一组事务，要么成功；要么撤回。 
+2）稳定性 ： 有非法数据（外键约束之类），事务撤回。 
+3）隔离性：事务独立运行。一个事务处理后的结果，影响了其他事务，那么其他事务会撤回。事务的100%隔离，需要牺牲速度。 
+4）可靠性：软、硬件崩溃后，InnoDB数据表驱动会利用日志文件重构修改。可靠性和高速度不可兼得， innodb_flush_log_at_trx_commit选项 决定什么时候吧事务保存到日志里。 
+    在MySQL中只有使用了Innodb数据库表才支持事务
+```
+begin； ＃开始一个事务
+rollback; #回滚 ， 这样数据是不会写入的
+commit; #写代码片
+```
