@@ -20,3 +20,15 @@ INSERT INTO `student` (`id`, `lel`, `score`) VALUES
 ```
 解决方案：
 `select min(id) as id,lel,max(score) from student group by lel`
+
+## 2 id在A表中存在，在B表中不存在，插入到B表中
+    场景：同步表A/B中的ID，将A表中存在的ID，但是在B表中不存在的ID去重插入到B表之中。
+解决方案：
+```
+insert into B(
+select DISTINCT '11111111',A.ID,A.NAME from A A where A.ID not in (select b.ID from B B));
+```
+## 3 获取小数点位数大于2位的数据
+```
+select * from TB where TO_NUMBER(amt) * 100 - floor(TO_NUMBER(amt) * 100) > 0
+```
