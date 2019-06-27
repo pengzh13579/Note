@@ -1,3 +1,5 @@
+[TOC]
+
 ## 1 概念
     REST全称是Representational State Transfer，中文意思是表征性状态转移，指的是一组架构约束条件和原则，是目前最流行的 API 设计规范，用于 Web 数据接口的设计，也是一种互联网应用程序的API设计理念。如果一个架构符合REST的约束条件和原则，我们就称它为RESTful架构。
     Swagger2，它可以轻松的整合到Spring Boot中，并与Spring MVC程序配合组织出强大RESTful API文档。它既可以减少我们创建文档的工作量，同时说明内容又整合入实现代码中，让维护文档和修改代码整合为一体，可以让我们在修改代码逻辑的同时方便的修改文档说明。另外Swagger2也提供了强大的页面测试功能来调试每个RESTful API。
