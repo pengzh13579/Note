@@ -118,3 +118,15 @@ https://github.com/alibaba/p3c/tree/master/idea-plugin
 mybatis代码自动生成插件，大部分单表操作的代码可自动生成，减少重复劳动，大幅提升效率。
 #### 3.10 Translation
 最好用的翻译插件，功能很强大，界面很漂亮。
+#### 3.11 BashSupport
+Bash 插件，可以支持高亮，语法提示等等。
+#### 3.12 Free Mybatis plugin
+mybatis 扩展工具插件，提供了一系列方便的操作，具体情况自己发掘，是 MyBatisCodeHelperPro 的复制版，最大的好处就是可以免费使用。
+#### 3.13 GenerateAllSetter
+自动生成类实例的 set 赋值方法，并且提供默认值赋值。当创建了一个类实例，需要挨个赋值的时候，插件可以提供极大的便捷，减少出现个别属性忘记赋值的情况。
+#### 3.14 Grep Console
+工作台输出扩展，可以给工作台输出上色，根据不同的日志等级设置不同的前景色或者背景色，以及查找等功能。
+#### 3.15 JRebel for IntelliJ
+热部署神器 jrebel 的插件，这个不多解释。
+#### 3.16 CamelCase
+快捷转换选定变量的风格。插件介绍：Switch easily between CamelCase, camelCase, snake_case and SNAKE_CASE. See Edit menu or use SHIFT + ALT + U。
