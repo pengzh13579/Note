@@ -48,3 +48,13 @@ select * from user_tablespaces where table_name like 'BO%';
 
 -- 查看表所属的用户
 select  table_name,Owner  from all_tab_columns where table_name like 'BO%';
+
+-- 创建表空间-start
+create temporary tablespace oracle_temp tempfile 'F:\app\lenovo\oradata\orcl\oracle_temp.dbf' size 50m  autoextend on  next 50m maxsize 20480m  extent management local;  
+create tablespace oracle logging  datafile 'F:\app\lenovo\oradata\orcl\oracle.dbf' size 50m  autoextend on  next 50m maxsize 20480m  extent management local;  
+create user oracle identified by oracle default tablespace oracle  temporary tablespace oracle_temp;  
+grant connect,resource,dba to oracle;
+alter user oracle identified by orasys2019;
+-- 创建表空间-end
+
+
