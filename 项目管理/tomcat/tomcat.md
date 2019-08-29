@@ -10,3 +10,30 @@
 2、语句：java.util.logging.ConsoleHandler.encoding = UTF-8
    改为：java.util.logging.ConsoleHandler.encoding = GBK
 3、重启tomcat！
+
+## 2 根目录访问项目
+### 2.1 解决方案
+
+在<Host>  ......</Host>中间添加一行，docBase即为默认访问的文件夹名称。
+
+```
+<Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+
+        <!-- SingleSignOn valve, share authentication between web applications
+             Documentation at: /docs/config/valve.html -->
+        <!--
+        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+        -->
+
+        <!-- Access log processes all example.
+             Documentation at: /docs/config/valve.html
+             Note: The pattern used is equivalent to using pattern="common" -->
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+			   
+		<Context docBase="E:/apache-tomcat-8.5.43/webapps/AAA" path="" debug="0"  reloadable="true"/>
+
+      </Host>
+```

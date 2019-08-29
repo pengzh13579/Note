@@ -150,4 +150,31 @@ application.properties中配置的server.port等参数将失效
     </plugins>
 </build>
 ```
-
+## 3 SpringBoot项目打war包后不存在resources下的资源文件
+```
+<build>
+	<finalName>war包名称</finalName>
+    <!--解决在src/main/java下不能读取xml的问题-->
+    <resources>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+            	<include>**/*.xml</include>
+            </includes>
+        </resource>
+        <!--扫描src/main/resources下的全部文件-->
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+            	<include>**/*.*</include>
+            </includes>
+        </resource>
+    </resources>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+```

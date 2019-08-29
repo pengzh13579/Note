@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import sun.misc.BASE64Decoder;
 
 public class AesUtils {
-    //密钥 (需要前端和后端保持一致)
+    //密钥 (需要前端和后端保持一致)加密用的Key 可以用26个字母和数字组成 此处使用AES-128-CBC加密模式，key需要为16位。
     private static final String KEY = "pengzh13579peng0";
     //算法
     private static final String ALGORITHMSTR = "AES/ECB/PKCS5Padding";
