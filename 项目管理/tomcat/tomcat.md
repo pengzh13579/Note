@@ -37,3 +37,20 @@
 
       </Host>
 ```
+## 3 请求获取乱码
+### 3.1 问题描述
+前台GET请求到服务器，请求的参数中包含了中文字符。前台参数为UTF-8格式，且经过了UTF-8 URL编码再发送。服务器端后台程序中取到的参数的中文是乱码。
+如`%E7%B2%BE%E7%AE%97%E9%AA%8C%E8%AF%81%E4%BB%A3%E7%A0%81%E6%96%B9%E4%BE%BF%E5%AD%A6%E4%B9%A0.doc`
+### 3.2 原因
+经过分析，应该是Tomcat在解析参数的时候没有使用正确的编码格式（UTF-8）去解码。
+查看$TOMCAT_HOME/webapps/tomcat-docs/config/http.html这个说明文档，有如下说明： 
+URIEncoding：This specifies the character encoding used to decode the URI bytes, after %xx decoding the URL. If not specified, ISO-8859-1 will be used.
+也就是说，如果没有设置URIEncoding， Tomcat默认是按ISO-8859-1进行URL解码，ISO-8859-1并未包括中文字符，这样的话中文字符肯定就不能被正确解析了。
+### 3.3 解决方案
+修改Tomcat的Server.xml，在Connector标签中加上URLEncoding参数：
+```
+<Connector port="8080" maxThreads="150" minSpareThreads="25" 
+maxSpareThreads="75" enableLookups="false" redirectPort="8443" 
+acceptCount="100" debug="99" connectionTimeout="20000" 
+disableUploadTimeout="true" URIEncoding="UTF-8"/>
+```

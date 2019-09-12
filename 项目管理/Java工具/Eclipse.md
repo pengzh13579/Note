@@ -87,3 +87,9 @@
 |Ctrl+W|关闭当前Editer（windows下关闭打开的对话框也是这个，还有qq、旺旺、浏览器等都是）|
 |Ctrl+L|文本编辑器 转至行|
 |F2|显示工具提示描述|
+### 2 Tomcat发布后项目不在webapps内
+ - 点击Windows-show-view-servers，显示你正在使用的tomcat。
+ - 右击显示的Tomcat，首先点击stop，然后点击Add and Remove，接着点击clean，一定要执行这几步，不然接下来的操作为灰色，无法更改。
+ - 双击服务器。
+ - 这个页面，接着选择第二个选项，将deploy path目录选择webapps，保存退出即可。
+![1539164709290](/assets/微信截图_20190830090446.png)
