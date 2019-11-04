@@ -1,0 +1,37 @@
+/**渐变色显示内容**/
+.jianBianSe {
+  height: 300rpx;
+  width: 300rpx;
+  background: -webkit-linear-gradient(top, rgba(204, 0, 126, 0.486), #1296db);
+}
+/**同行显示内容**/
+.tongHangXianShi {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  width:100%;
+}
+.tongHangXianShi .left {
+  width:60%;
+  display:inline-block;
+  background-color: #dddddd;
+}
+.tongHangXianShi .right {
+  width:40%;
+  text-align:right;
+  padding-right:10rpx;
+  display:inline-block;
+  background-color: #dd33dd;
+}
+/**竖排显示**/
+/**默认：writing-mode: horizontal-tb;**/
+.txtShow1 {
+  writing-mode: vertical-rl;
+  font-size: 45rpx;
+  background-color: #dd33dd;
+}
+.txtShow2 {
+  writing-mode: vertical-lr;
+  font-size: 45rpx;
+  background-color: #6666dd;
+}

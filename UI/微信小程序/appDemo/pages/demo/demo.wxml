@@ -1,0 +1,15 @@
+<view class="jianBianSe">
+  <text>渐变色</text>
+</view>
+<view class="tongHangXianShi">
+  <view class="left">左侧显示内容</view>
+  <view class="right">右侧显示内容</view>
+</view>
+<view class="txtShow1">
+  <text>床前明月光\n</text>
+  <text>疑是地上霜</text>
+</view>
+<view class="txtShow2">
+  <text>床前明月光\n</text>
+  <text>疑是地上霜</text>
+</view>
