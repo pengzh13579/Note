@@ -1,15 +1,72 @@
-<view class="jianBianSe">
+<view class='gradient'>
   <text>渐变色</text>
 </view>
-<view class="tongHangXianShi">
-  <view class="left">左侧显示内容</view>
-  <view class="right">右侧显示内容</view>
+<view class='abreastShow'>
+  <view class='left'>左侧显示内容</view>
+  <view class='right'>右侧显示内容</view>
 </view>
-<view class="txtShow1">
+<view class='txtShow1'>
   <text>床前明月光\n</text>
   <text>疑是地上霜</text>
 </view>
-<view class="txtShow2">
+<view class='txtShow2'>
   <text>床前明月光\n</text>
   <text>疑是地上霜</text>
 </view>
+
+<text>\n</text>
+
+<scroll-view scroll-x='true' scroll-y='true' style=' width: 100%; height: 80%;' class='scroll_display'>
+  <view class='table test_display'>
+    <view class='tr bg-w'>
+      <view class='th'>head1</view>
+      <view class='th'>head2</view>
+      <view class='th'>head3</view>
+      <view class='th'>head3</view>
+      <view class='th'>head3</view>
+      <view class='th'>head3</view>
+      <view class='th'>head3</view>
+      <view class='th'>head3</view>
+      <view class='th'>head3</view>
+    </view>
+    <block wx:for='{{listData}}' wx:key='{{key}}'>
+      <view class='tr bg-g' wx:if='{{index % 2 == 0}}'>
+        <view class='td'>{{item.code}}</view>
+        <view class='td'>{{item.text}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+      </view>
+      <view class='tr' wx:else>
+        <view class='td'>{{item.code}}</view>
+        <view class='td'>{{item.text}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+        <view class='td'>{{item.type}}</view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<text>\n</text>
+
+<view class='select_box'>
+    <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{selectData[index]}}</text>
+    </view>
+    <view class='option_box' style='height : {{selectShow ? selectData.length * 50 : 0}}rpx;'>
+        <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+    </view>
+</view>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>

@@ -59,7 +59,7 @@
     </resources>
 </build>
 ```
-### 1.3 若大成war包则追加以下内容
+### 1.3 war包追加内容
 ```
 <build>
     <plugins>
