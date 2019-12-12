@@ -17,7 +17,7 @@
 |index.html|首页入口文件，你可以添加一些 meta 信息或统计代码啥的|
 |package.json|项目配置文件|
 |README.md|项目的说明文档，markdown 格式|
-### 2 实例化
+## 2 实例化
 每个 Vue 应用都需要通过实例化 Vue 来实现。
 ```
 var vm = new Vue({
