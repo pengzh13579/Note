@@ -1,4 +1,4 @@
---查询表空间使用情况
+--查询表空间使用情况（BYYTES）
 SELECT Upper(F.TABLESPACE_NAME)         "表空间名",
        D.TOT_GROOTTE_MB                 "表空间大小(M)",
        D.TOT_GROOTTE_MB - F.TOTAL_BYTES "已使用空间(M)",
@@ -24,7 +24,7 @@ select tablespace_name, count(*) AS extends,round(sum(bytes) / 1024 / 1024, 2) A
 --查询表空间的总容量
 select tablespace_name, sum(bytes) / 1024 / 1024 as MB from dba_data_files group by tablespace_name;
 
---查询表空间使用率
+--查询表空间使用率（MB）
 SELECT total.tablespace_name,
        Round(total.MB, 2)           AS Total_MB,
        Round(total.MB - free.MB, 2) AS Used_MB,
@@ -49,12 +49,12 @@ select * from user_tablespaces where table_name like 'BO%';
 -- 查看表所属的用户
 select  table_name,Owner  from all_tab_columns where table_name like 'BO%';
 
--- 创建表空间-start
+-- 创建表空间及用户-start
 create temporary tablespace oracle_temp tempfile 'F:\app\lenovo\oradata\orcl\oracle_temp.dbf' size 50m  autoextend on  next 50m maxsize 20480m  extent management local;  
 create tablespace oracle logging  datafile 'F:\app\lenovo\oradata\orcl\oracle.dbf' size 50m  autoextend on  next 50m maxsize 20480m  extent management local;  
 create user oracle identified by oracle default tablespace oracle  temporary tablespace oracle_temp;  
 grant connect,resource,dba to oracle;
 alter user oracle identified by orasys2019;
--- 创建表空间-end
+-- 创建表空间及用户-end
 
 
