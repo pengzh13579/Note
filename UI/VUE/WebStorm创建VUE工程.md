@@ -32,8 +32,10 @@ webpack -v
 ```
 ### 1.3 全局安装vue-cli
 ```
-# 安装命令
+# 安装命令 安装CLI2
 cnpm install --global vue-cli
+# 安装命令 安装CLI3
+cnpm install -g @vue/cli
 # 验证命令
 vue -V (V要大写)
 ```
@@ -44,6 +46,9 @@ vue -V (V要大写)
 项目名称不能有大写字母,这里我用vus_demo         
 ```
 vue init Webpack vue_demo
+或
+vue init Webpack-simple vue_demo
+vue create vue_demo
 ```
 都可以选择默认，直接回车，也可以根据自己所需依次回复Yes/no
 
